@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import InputItem from './inputitem';  // Make sure the file and import are correct
+import InputItem from './inputitem';  // Ensure correct import (case-sensitive)
 import { HiArrowRight } from 'react-icons/hi';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsTelephone } from 'react-icons/bs';
@@ -10,7 +10,7 @@ import { MdOutlineSchool } from 'react-icons/md';
 import { CgWebsite } from 'react-icons/cg';
 import 'animate.css';
 
-const PromptUser = ({ handleChange, imageSource, userobject }) => {
+const PromptUser = ({ handleChange, userobject }) => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
@@ -21,19 +21,123 @@ const PromptUser = ({ handleChange, imageSource, userobject }) => {
     return (
         <div className="prompt-container">
             <div className="inputs">
-                <inputitem className="first-name" onChange={handleChange} label="First Name" name="firstName" placeholder="Enter your first name" />
-                <inputitem className="last-name" onChange={handleChange} label="Last Name" name="lastName" placeholder="Enter your last name" />
-                <inputitem className="email" onChange={handleChange} label={<AiOutlineMail />} name="email" placeholder="Enter your email" />
-                <inputitem className="phone" onChange={handleChange} label={<BsTelephone />} name="phoneNumber" placeholder="Enter your phone number" />
-                <inputitem className="website" onChange={handleChange} label={<CgWebsite />} name="website" placeholder="Enter your website" />
-                <inputitem className="birth-date" onChange={handleChange} label={<FaBirthdayCake />} type="date" name="DOB" />
-                <inputitem className="age" onChange={handleChange} label={<GiAges />} type="number" name="age" placeholder="Enter your age" />
-                <inputitem className="skills" onChange={handleChange} label="Skill" name="skills" placeholder="List one relevant skill" />
-                <inputitem className="experience" onChange={handleChange} label={<MdOutlineSchool />} name="experience" placeholder="Enter your experience" />
-                <inputitem className="graduationYear" onChange={handleChange} label="Graduation Year" name="graduationYear" placeholder="Enter your graduation year" />
-                <inputitem className="accomplishments" onChange={handleChange} label="Accomplishment" name="accomplishment" placeholder="Enter your accomplishments" />
-                <inputitem className="university" onChange={handleChange} label="University" name="university" placeholder="Enter your university" />
-                <inputitem className="profile" onChange={handleChange} label="Profile" name="profile" placeholder="Write about yourself" />
+                <InputItem
+                    className="first-name"
+                    name="firstName"
+                    label="First Name"
+                    placeholder="Enter your first name"
+                    value={userobject.firstName || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="last-name"
+                    name="lastName"
+                    label="Last Name"
+                    placeholder="Enter your last name"
+                    value={userobject.lastName || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="email"
+                    name="email"
+                    label={<AiOutlineMail />}
+                    placeholder="Enter your email"
+                    value={userobject.email || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="phone"
+                    name="phoneNumber"
+                    label={<BsTelephone />}
+                    placeholder="Enter your phone number"
+                    value={userobject.phoneNumber || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="website"
+                    name="website"
+                    label={<CgWebsite />}
+                    placeholder="Enter your website"
+                    value={userobject.website || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="birth-date"
+                    type="date"
+                    name="DOB"
+                    label={<FaBirthdayCake />}
+                    value={userobject.DOB || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="age"
+                    type="number"
+                    name="age"
+                    label={<GiAges />}
+                    placeholder="Enter your age"
+                    value={userobject.age || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="skills"
+                    name="skills"
+                    label="Skill"
+                    placeholder="List one relevant skill"
+                    value={userobject.skills || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="experience"
+                    name="experience"
+                    label={<MdOutlineSchool />}
+                    placeholder="Enter your experience"
+                    value={userobject.experience || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="graduationYear"
+                    name="graduationYear"
+                    label="Graduation Year"
+                    placeholder="Enter your graduation year"
+                    value={userobject.graduationYear || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="accomplishments"
+                    name="accomplishment"
+                    label="Accomplishment"
+                    placeholder="Enter your accomplishments"
+                    value={userobject.accomplishment || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="university"
+                    name="university"
+                    label="University"
+                    placeholder="Enter your university"
+                    value={userobject.university || ''}
+                    onChange={handleChange}
+                />
+
+                <InputItem
+                    className="profile"
+                    name="profile"
+                    label="Profile"
+                    placeholder="Write about yourself"
+                    value={userobject.profile || ''}
+                    onChange={handleChange}
+                />
 
                 {/* Button to generate resume */}
                 <button className="generate-button" onClick={handleButtonClick}>

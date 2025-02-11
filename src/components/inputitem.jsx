@@ -4,7 +4,8 @@ const InputItem = ({
     label,
     placeholder = '',
     name,
-    onChange, // Fixed case
+    onChange,
+    value = '', // ✅ Ensures React tracks the input state
     type = 'text',
     isTextArea = false,
     className = ''
@@ -14,6 +15,7 @@ const InputItem = ({
             <div className="input">
                 {!isTextArea ? (
                     <input
+                        value={value} // ✅ Controlled component fix
                         onChange={onChange}
                         placeholder={placeholder}
                         name={name}
@@ -21,6 +23,7 @@ const InputItem = ({
                     />
                 ) : (
                     <textarea
+                        value={value} // ✅ Controlled textarea fix
                         onChange={onChange}
                         placeholder={placeholder}
                         name={name}
